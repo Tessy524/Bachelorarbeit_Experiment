@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dokumentenverwaltung</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Startseite -->
+    <main id="start-screen" class="screen">
+
+        <section class="welcome-card">
+
+            <h1>Dokumentenverwaltung</h1>
+
+            <p>
+                Willkommen bei der Untersuchung einer webbasierten
+                Dokumentenverwaltungsanwendung.
+            </p>
+
+            <p>
+                Im nächsten Schritt bearbeiten Sie einige Aufgaben
+                innerhalb der Anwendung.
+            </p>
+
+            <button id="start-button" class="primary-button">
+                Experiment starten
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- Dokumentenmanager -->
+    <!-- Simulierter Desktop -->
+<main id="experiment-screen" class="screen hidden">
+
+    <div class="desktop">
+
+        <!-- Desktop-Symbole -->
+        <div class="desktop-icons">
+
+            <div class="desktop-icon">
+                <div class="desktop-icon-symbol">▧</div>
+                <span>Papierkorb</span>
+            </div>
+
+            <div class="desktop-icon">
+                <div class="desktop-icon-symbol browser-symbol">e</div>
+                <span>Browser</span>
+            </div>
+
+        </div>
+
+
+        <!-- Geöffnetes Explorer-Fenster -->
+        <section class="explorer-window">
+
+            <!-- Fensterleiste -->
+            <div class="explorer-titlebar">
+
+                <div class="explorer-title">
+                    📁 Dokumente
+                </div>
+
+                <div class="window-controls">
+                    <span>─</span>
+                    <span>□</span>
+                    <span>×</span>
+                </div>
+
+            </div>
+
+
+            <!-- Explorer-Menü -->
+            <div class="explorer-toolbar">
+
+                <span>Datei</span>
+                <span>Start</span>
+                <span>Freigeben</span>
+                <span>Ansicht</span>
+
+                <div class="timer">
+                    Zeit:
+                    <span id="timer">00:00</span>
+                </div>
+
+            </div>
+
+
+            <!-- Explorer-Inhalt -->
+            <div class="app-layout">
+
+                <aside class="sidebar">
+
+                    <h2>Ordner</h2>
+
+                    <div class="folder">
+                        📁 Verträge
+                    </div>
+
+                    <div class="folder">
+                        📁 Rechnungen
+                    </div>
+
+                    <div class="folder">
+                        📁 Angebote
+                    </div>
+
+                    <div class="folder">
+                        📁 Sonstiges
+                    </div>
+
+                </aside>
+
+
+                <section class="document-area">
+
+                    <div class="document-header">
+
+                        <h2>Dokumente</h2>
+
+                        <div>
+                            Bearbeitet:
+                            <span id="document-count">0</span>
+                            / 10
+                        </div>
+
+                    </div>
+
+
+                    <div id="document-list" class="document-list">
+
+                        <!-- Dokumente werden per JavaScript eingefügt -->
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <!-- Taskleiste -->
+        <div class="desktop-taskbar">
+
+            <div class="start-symbol">
+                ⊞
+            </div>
+
+            <div class="taskbar-search">
+                🔍&nbsp;&nbsp;Zur Suche Text hier eingeben
+            </div>
+
+            <div class="taskbar-app">
+                📁
+            </div>
+
+            <div class="taskbar-spacer"></div>
+
+            <div class="taskbar-status">
+                ◉ &nbsp;⌃&nbsp;&nbsp; DE
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+    <!-- Dokumentenvorschau -->
+    <div id="document-modal" class="modal hidden">
+
+        <div class="word-window">
+
+            <!-- Word-Kopfzeile -->
+            <div class="word-titlebar">
+
+                <div class="word-title">
+                    Dokumentenvorschau
+                </div>
+
+                <button
+                    id="close-document"
+                    class="close-button"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- Word-Menü -->
+            <div class="word-menu">
+
+                <span>Datei</span>
+                <span>Start</span>
+                <span>Einfügen</span>
+                <span>Überprüfen</span>
+                <span>Ansicht</span>
+
+            </div>
+
+
+            
+<!-- Dokumentenbereich: Vorschau links, Zuordnung rechts -->
+<div class="word-workspace">
+
+    <!-- Linke Seite: Dokumentenvorschau -->
+    <div class="word-document">
+
+        <div class="document-page">
+
+            <div id="modal-document-content">
+                <!-- Inhalt wird per JavaScript eingefügt -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Rechte Seite: Feste Ordnerauswahl -->
+    <aside class="assignment-panel">
+
+        <div class="assignment-section">
+
+            <h3>Dokument zuordnen</h3>
+
+            <p>
+                Wählen Sie den passenden Ordner für dieses Dokument aus.
+            </p>
+
+            <div class="folder-options">
+
+                <label class="folder-option">
+                    <input
+                        type="radio"
+                        name="folder-assignment"
+                        value="Verträge"
+                    >
+                    Verträge
+                </label>
+
+                <label class="folder-option">
+                    <input
+                        type="radio"
+                        name="folder-assignment"
+                        value="Rechnungen"
+                    >
+                    Rechnungen
+                </label>
+
+                <label class="folder-option">
+                    <input
+                        type="radio"
+                        name="folder-assignment"
+                        value="Angebote"
+                    >
+                    Angebote
+                </label>
+
+                <label class="folder-option">
+                    <input
+                        type="radio"
+                        name="folder-assignment"
+                        value="Sonstiges"
+                    >
+                    Sonstiges
+                </label>
+
+            </div>
+
+            <button
+                id="assign-document-button"
+                class="primary-button assign-button"
+                type="button"
+                disabled
+            >
+                Zuordnen
+            </button>
+
+        </div>
+
+    </aside>
+
+</div>
+
+
+            <!-- Fußzeile -->
+            <div class="word-statusbar">
+
+                <span id="modal-document-type">
+                    Dokument
+                </span>
+
+                <span>
+                    Dokumentenvorschau
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Sicherheitswarnung -->
+<div id="security-modal" class="security-modal hidden">
+
+    <div class="security-warning">
+
+        <div class="security-warning-icon">
+            ⚠
+        </div>
+
+        <h2>
+            Sicherheitswarnung
+        </h2>
+
+        <p id="security-warning-text">
+            Warnung wird automatisch eingesetzt.
+        </p>
+
+        <div class="security-actions">
+
+            <button
+                id="security-abort-button"
+                class="security-button"
+                type="button"
+            >
+                Vorgang abbrechen
+            </button>
+
+            <button
+                id="security-continue-button"
+                class="security-button"
+                type="button"
+            >
+                Fortfahren
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

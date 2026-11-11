@@ -1,0 +1,2967 @@
+/* =========================
+   Allgemeine Einstellungen
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+
+/* =========================
+   Hilfsklasse
+   ========================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   Startseite
+   ========================= */
+
+.screen {
+    min-height: 100vh;
+}
+
+#start-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-card {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-card h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.welcome-card p {
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+
+/* =========================
+   Buttons
+   ========================= */
+
+.primary-button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* =========================
+   Obere Leiste
+   ========================= */
+
+.top-bar {
+    height: 64px;
+    background-color: white;
+    border-bottom: 1px solid #d1d5db;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+}
+
+.app-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.timer {
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 8px 14px;
+
+    background-color: #f3f4f6;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================
+   Layout
+   ========================= */
+
+.app-layout {
+    display: flex;
+    min-height: 0;
+}
+
+
+/* =========================
+   Seitenleiste
+   ========================= */
+
+.sidebar {
+    width: 220px;
+    background-color: white;
+    border-right: 1px solid #d1d5db;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.folder {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.folder:hover {
+    background-color: #f3f4f6;
+}
+
+
+/* =========================
+   Dokumentbereich
+   ========================= */
+
+.document-area {
+    flex: 1;
+    padding: 30px;
+}
+
+.document-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.document-header h2 {
+    margin: 0;
+}
+
+
+/* =========================
+   Dokumentliste
+   ========================= */
+
+.document-list {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+
+/* Einzelne Datei */
+
+.document {
+    display: grid;
+
+    grid-template-columns: 42px minmax(0, 1fr) 160px;
+
+    align-items: center;
+
+    min-height: 58px;
+
+    padding: 8px 16px;
+
+    background-color: white;
+
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+
+    border-radius: 0;
+
+    cursor: pointer;
+
+    transition: background-color 0.15s ease;
+}
+
+.document:last-child {
+    border-bottom: none;
+}
+
+.document:hover {
+    background-color: #f3f6fb;
+}
+
+
+/* Dateisymbol */
+
+.document-icon {
+    font-size: 25px;
+
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* Dateiname */
+
+.document-name {
+    min-width: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+
+    margin: 0;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Dokumenttyp */
+
+.document-type {
+    font-size: 13px;
+
+    color: #6b7280;
+
+    padding-left: 16px;
+}
+/* =========================
+   Simulierter Windows-Desktop
+   ========================= */
+
+#experiment-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+.desktop {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0078d4 0%,
+            #0099e5 45%,
+            #0067c5 100%
+        );
+}
+
+
+/* Desktop-Symbole */
+
+.desktop-icons {
+    position: absolute;
+
+    top: 24px;
+    left: 22px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.desktop-icon {
+    width: 76px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+
+    font-size: 12px;
+    text-align: center;
+
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.desktop-icon-symbol {
+    width: 46px;
+    height: 46px;
+
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #4b5563;
+
+    border-radius: 4px;
+
+    font-size: 28px;
+
+    text-shadow: none;
+}
+
+.browser-symbol {
+    border-radius: 50%;
+
+    background-color: #1e88e5;
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+/* Explorer-Fenster */
+
+.explorer-window {
+    position: absolute;
+
+    top: 6%;
+    left: 11%;
+
+    width: 82%;
+    height: 82%;
+
+    background-color: white;
+
+    border: 1px solid #9ca3af;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* Explorer-Titelleiste */
+
+.explorer-titlebar {
+    height: 38px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 12px;
+
+    background-color: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 13px;
+}
+
+.explorer-title {
+    font-weight: 500;
+}
+
+.window-controls {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.window-controls span {
+    width: 46px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+}
+
+.window-controls span:last-child:hover {
+    background-color: #e81123;
+    color: white;
+}
+
+
+/* Explorer-MenÃ¼ */
+
+.explorer-toolbar {
+    min-height: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+
+    padding: 0 14px;
+
+    background-color: #fafafa;
+
+    border-bottom: 1px solid #d1d5db;
+
+    font-size: 13px;
+}
+
+.explorer-toolbar .timer {
+    margin-left: auto;
+
+    padding: 5px 10px;
+
+    font-size: 13px;
+}
+
+
+/* Inhalt des Explorer-Fensters */
+
+.explorer-window .app-layout {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.explorer-window .sidebar {
+    overflow-y: auto;
+}
+
+.explorer-window .document-area {
+    overflow-y: auto;
+}
+
+
+/* Windows-Taskleiste */
+
+.desktop-taskbar {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: rgba(25, 31, 38, 0.96);
+
+    color: white;
+
+    z-index: 10;
+}
+
+.start-symbol {
+    width: 50px;
+    height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+}
+
+.taskbar-search {
+    width: 260px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+
+    background-color: #f3f4f6;
+
+    color: #374151;
+
+    font-size: 13px;
+}
+
+.taskbar-app {
+    width: 48px;
+
+    text-align: center;
+
+    font-size: 20px;
+}
+
+.taskbar-spacer {
+    flex: 1;
+}
+
+.taskbar-status {
+    padding: 0 16px;
+
+    font-size: 12px;
+}
+
+/* =========================
+   Dokumentenvorschau / Modal
+   ========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   Word-Fenster
+   ========================= */
+
+.word-window {
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+
+    background-color: white;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================
+   Word-Titelleiste
+   ========================= */
+
+.word-titlebar {
+    height: 50px;
+
+    background-color: #f3f4f6;
+
+    border-bottom: 1px solid #d1d5db;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+}
+
+.word-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.close-button {
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 5px;
+}
+
+.close-button:hover {
+    background-color: #e5e7eb;
+}
+
+
+/* =========================
+   Word-MenÃ¼
+   ========================= */
+
+.word-menu {
+    height: 42px;
+
+    border-bottom: 1px solid #d1d5db;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 0 20px;
+
+    font-size: 14px;
+
+    color: #374151;
+}
+
+
+/* =========================
+   Word-Dokumentbereich
+   ========================= */
+
+.word-document {
+    flex: 1;
+
+    background-color: #e5e7eb;
+
+    overflow-y: auto;
+
+    padding: 35px;
+}
+
+
+/* =========================
+   Dokumentseite
+   ========================= */
+
+.document-page {
+    max-width: 700px;
+
+    min-height: 900px;
+
+    margin: 0 auto;
+
+    background-color: white;
+
+    padding: 70px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.document-page h1 {
+    margin-top: 0;
+
+    font-size: 24px;
+
+    margin-bottom: 35px;
+}
+
+.document-page p {
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   Word-Statusleiste
+   ========================= */
+
+.word-statusbar {
+    height: 30px;
+
+    border-top: 1px solid #d1d5db;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+/* =========================
+   Dokument-Zuordnung
+   ========================= */
+
+.assignment-section {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #d1d5db;
+}
+
+.assignment-section h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.assignment-section p {
+    margin-top: 0;
+    color: #6b7280;
+}
+
+.folder-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.folder-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px;
+
+    background-color: #f9fafb;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.folder-option:hover {
+    background-color: #f3f4f6;
+}
+
+.folder-option input {
+    cursor: pointer;
+}
+
+.assign-button {
+    margin-top: 20px;
+}
+
+.assign-button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   Bereits bearbeitete Dokumente
+   ========================= */
+
+.document.completed {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.document.completed::after {
+    content: "Bearbeitet";
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    color: #6b7280;
+}
+
+/* =========================
+   Sicherheitswarnung
+   ========================= */
+
+.security-modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.65);
+
+    z-index: 2000;
+}
+
+
+.security-warning {
+    width: 100%;
+    max-width: 520px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    padding: 32px;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+.security-warning-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+
+.security-warning h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    font-size: 24px;
+}
+
+
+.security-warning p {
+    line-height: 1.6;
+    color: #374151;
+}
+
+
+.security-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+.security-button {
+    padding: 13px 16px;
+
+    border: 1px solid #9ca3af;
+    border-radius: 6px;
+
+    background-color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.security-button:hover {
+    background-color: #f3f4f6;
+}
+
+/* =========================
+   Responsive Design
+   Smartphones und kleine Tablets
+   ========================= */
+
+@media (max-width: 768px) {
+
+    /* Startseite */
+
+    #start-screen {
+        padding: 16px;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+
+    .welcome-card {
+        padding: 24px;
+        border-radius: 10px;
+    }
+
+    .welcome-card h1 {
+        font-size: 24px;
+    }
+
+    .primary-button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+
+    /* Kopfbereich */
+
+    .top-bar {
+        height: auto;
+        min-height: 64px;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .app-title {
+        font-size: 16px;
+    }
+
+    .timer {
+        flex-shrink: 0;
+        font-size: 14px;
+    }
+
+
+    /* Hauptlayout */
+
+    .app-layout {
+        display: block;
+        min-height: auto;
+    }
+
+
+    /* Ordner auf dem Handy horizontal anzeigen */
+
+    .sidebar {
+        width: 100%;
+        padding: 14px 16px;
+
+        border-right: none;
+        border-bottom: 1px solid #d1d5db;
+    }
+
+    .sidebar h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .folder {
+        display: inline-block;
+        padding: 8px 10px;
+        margin-right: 4px;
+        margin-bottom: 5px;
+
+        font-size: 14px;
+    }
+
+
+    /* Dokumentbereich */
+
+    .document-area {
+        padding: 20px 16px;
+    }
+
+    .document-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .document-header h2 {
+        font-size: 22px;
+    }
+
+
+    /* Dokumentkarten */
+
+   .document-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.document {
+    grid-template-columns: 36px minmax(0, 1fr);
+
+    min-height: 64px;
+
+    padding: 10px 12px;
+}
+
+.document-icon {
+    font-size: 24px;
+    margin: 0;
+}
+
+.document-name {
+    font-size: 15px;
+    line-height: 1.35;
+
+    overflow-wrap: anywhere;
+}
+
+.document-type {
+    grid-column: 2;
+
+    padding-left: 0;
+    margin-top: 3px;
+
+    font-size: 12px;
+}
+
+
+    /* Dokumentenvorschau */
+
+    .modal {
+        padding: 0;
+        align-items: stretch;
+    }
+
+    .word-window {
+        max-width: none;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .word-menu {
+        gap: 16px;
+        padding: 0 14px;
+
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .word-document {
+        padding: 16px;
+    }
+
+    .document-page {
+        width: 100%;
+        min-height: auto;
+
+        padding: 24px 18px;
+
+        box-shadow: none;
+    }
+
+    .document-page h1 {
+        font-size: 21px;
+        margin-bottom: 24px;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* Ordnerauswahl im Dokument */
+
+    .folder-options {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .folder-option {
+        min-height: 48px;
+        padding: 13px;
+    }
+
+    .assign-button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+
+    /* Sicherheitswarnung */
+
+    .security-warning {
+        max-width: 100%;
+        padding: 24px 20px;
+    }
+
+    .security-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .security-button {
+        min-height: 48px;
+    }
+
+}
+
+/* =========================
+   Dokument 1: Kaufvertrag
+   Nur die Darstellung innerhalb der Dokumentenvorschau
+   ========================= */
+.business-document {
+    color: #202a36;
+    font-size: 14px;
+}
+.business-letterhead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding-bottom: 16px;
+    margin-bottom: 26px;
+    border-bottom: 2px solid #315d87;
+}
+.business-brand { display: flex; align-items: center; gap: 11px; }
+.business-brand-mark {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #315d87;
+    color: #fff;
+    font-size: 27px;
+    font-weight: 700;
+}
+.business-brand strong { display: block; font-size: 18px; }
+.business-brand small { display: block; font-size: 11px; color: #596575; }
+.business-address { font-size: 11px; line-height: 1.5; text-align: right; }
+.document-page .business-document-title {
+    font-size: 26px;
+    margin: 0 0 22px;
+}
+.document-page .business-document-intro {
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.contract-clause { margin-bottom: 17px; }
+.contract-clause h3 {
+    padding: 7px 10px;
+    margin: 0 0 8px;
+    background: #e6edf4;
+    border-left: 3px solid #315d87;
+    font-size: 14px;
+}
+.document-page .contract-clause p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.document-page .contract-place-date { margin: 27px 0 30px; font-size: 12px; }
+.contract-signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.signature-line { display: block; height: 20px; border-bottom: 1px solid #596575; }
+.contract-signatures small { display: block; margin-top: 6px; font-size: 11px; line-height: 1.4; }
+@media (max-width: 600px) {
+    .business-letterhead { flex-wrap: wrap; }
+    .business-address { text-align: left; }
+    .contract-signatures { gap: 16px; }
+    .business-brand strong { font-size: 16px; }
+}
+
+
+/* =========================
+   Dokument 2: Wartungsvertrag
+   ========================= */
+
+.maintenance-document {
+    color: #263746;
+}
+
+.maintenance-letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    border-bottom: 2px solid #71808d;
+    padding-bottom: 17px;
+    margin-bottom: 25px;
+}
+
+.maintenance-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.maintenance-brand-mark {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    background: #394d5d;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.maintenance-brand strong {
+    display: block;
+    font-size: 17px;
+}
+
+.maintenance-brand small {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.maintenance-address {
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.document-page .maintenance-title {
+    font-size: 26px;
+    margin: 0 0 22px;
+}
+
+.document-page .maintenance-intro {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 22px;
+}
+
+.maintenance-clause {
+    border-bottom: 1px solid #d8dde2;
+    padding: 0 0 12px;
+    margin: 0 0 13px;
+}
+
+.maintenance-clause h3 {
+    font-size: 14px;
+    margin: 0 0 7px;
+}
+
+.document-page .maintenance-clause p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.document-page .maintenance-date {
+    font-size: 12px;
+    margin: 24px 0 27px;
+}
+
+.maintenance-signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.maintenance-signature-line {
+    display: block;
+    height: 20px;
+    border-bottom: 1px solid #94a3b8;
+}
+
+.maintenance-signatures small {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .maintenance-letterhead {
+        flex-wrap: wrap;
+    }
+
+    .maintenance-address {
+        text-align: left;
+    }
+
+    .maintenance-signatures {
+        gap: 16px;
+    }
+
+    .maintenance-brand strong {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================
+   Dokument 3: Rechnung Juli
+   ========================= */
+
+.invoice-document {
+    color: #263746;
+}
+
+.invoice-letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #315d87;
+}
+
+.invoice-company {
+    display: block;
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
+.invoice-letterhead small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: #64748b;
+}
+
+.invoice-company-address {
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.invoice-address-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 38px;
+}
+
+.invoice-recipient {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.invoice-recipient strong {
+    display: block;
+}
+
+.invoice-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.invoice-date {
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.document-page .invoice-title {
+    font-size: 27px;
+    margin: 0 0 16px;
+}
+
+.document-page .invoice-intro {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+.invoice-table th {
+    padding: 12px;
+    background-color: #e8edf2;
+    text-align: left;
+}
+
+.invoice-table th:last-child,
+.invoice-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.invoice-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.invoice-table td small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.invoice-table .invoice-total td {
+    background-color: #e8edf2;
+    border-bottom: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.document-page .invoice-payment {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 45px;
+}
+
+.invoice-footer {
+    padding-top: 14px;
+    border-top: 1px solid #d8dde2;
+    font-size: 10px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    .invoice-letterhead,
+    .invoice-address-row {
+        flex-wrap: wrap;
+    }
+
+    .invoice-company-address,
+    .invoice-date {
+        text-align: left;
+    }
+
+    .invoice-table th,
+    .invoice-table td {
+        padding: 10px 6px;
+    }
+}
+
+
+/* =========================
+   Dokument 4: Angebot Büroausstattung
+   ========================= */
+
+.offer-document {
+    color: #263746;
+}
+
+.offer-letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 17px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #426b58;
+}
+
+.offer-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.offer-brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: #426b58;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.offer-brand strong {
+    display: block;
+    color: #254c3c;
+    font-size: 20px;
+}
+
+.offer-brand small {
+    display: block;
+    margin-top: 2px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.offer-company-address {
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: right;
+}
+
+.offer-address-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.offer-recipient {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.offer-recipient strong {
+    display: block;
+}
+
+.offer-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.offer-date {
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.document-page .offer-title {
+    color: #254c3c;
+    font-size: 25px;
+    margin: 0 0 22px;
+}
+
+.document-page .offer-salutation,
+.document-page .offer-intro,
+.document-page .offer-closing {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 17px;
+}
+
+.offer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 12px;
+}
+
+.offer-table th {
+    padding: 12px;
+    background-color: #e9f0eb;
+    color: #254c3c;
+    text-align: left;
+}
+
+.offer-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.offer-table th:last-child,
+.offer-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.offer-table td small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.offer-table .offer-total td {
+    background-color: #e9f0eb;
+    color: #254c3c;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: none;
+}
+
+.offer-conditions {
+    margin: 25px 0;
+}
+
+.offer-conditions h3 {
+    margin: 0 0 8px;
+    color: #254c3c;
+    font-size: 14px;
+}
+
+.document-page .offer-conditions p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.offer-signature {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 26px 0 35px;
+    font-size: 13px;
+}
+
+.offer-signature strong {
+    margin-top: 10px;
+}
+
+.offer-signature small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.offer-footer {
+    padding-top: 13px;
+    border-top: 1px solid #d8dde2;
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .offer-letterhead,
+    .offer-address-row {
+        flex-wrap: wrap;
+    }
+
+    .offer-company-address,
+    .offer-date {
+        text-align: left;
+    }
+
+    .offer-table th,
+    .offer-table td {
+        padding: 10px 6px;
+    }
+}
+
+
+/* =========================
+   Dokument 5: Besprechungsnotiz
+   ========================= */
+
+.meeting-document {
+    color: #263746;
+}
+
+.meeting-letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #94a3b8;
+}
+
+.meeting-letterhead strong {
+    display: block;
+    font-size: 15px;
+}
+
+.meeting-letterhead small {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.meeting-department {
+    text-align: right;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.document-page .meeting-title {
+    font-size: 25px;
+    margin: 0 0 9px;
+}
+
+.document-page .meeting-subtitle {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.meeting-info {
+    padding: 18px;
+    margin-bottom: 28px;
+    background-color: #f3f4f6;
+    border-radius: 5px;
+}
+
+.meeting-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #d8dde2;
+}
+
+.meeting-info-grid strong,
+.meeting-participants strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.meeting-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.meeting-participants {
+    margin-top: 14px;
+}
+
+.meeting-section {
+    padding-bottom: 17px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.meeting-section h3 {
+    margin: 0 0 9px;
+    font-size: 14px;
+    color: #263746;
+}
+
+.document-page .meeting-section p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.meeting-next-date {
+    padding: 16px;
+    margin: 25px 0 32px;
+    background-color: #f3f4f6;
+    border-radius: 5px;
+}
+
+.meeting-next-date strong {
+    display: block;
+    font-size: 13px;
+}
+
+.meeting-footer {
+    padding-top: 13px;
+    border-top: 1px solid #d8dde2;
+    color: #64748b;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    .meeting-letterhead {
+        flex-wrap: wrap;
+    }
+
+    .meeting-department {
+        text-align: left;
+    }
+
+    .meeting-info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+
+/* =========================
+   Dokument 6: Urlaubsantrag
+   ========================= */
+
+.leave-document {
+    color: #263746;
+}
+
+.leave-letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #94a3b8;
+}
+
+.leave-letterhead strong {
+    display: block;
+    font-size: 15px;
+}
+
+.leave-letterhead small {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.leave-header-info {
+    text-align: right;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.document-page .leave-title {
+    font-size: 26px;
+    margin: 0 0 15px;
+}
+
+.document-page .leave-recipient {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 32px;
+}
+
+.leave-section {
+    margin-bottom: 30px;
+}
+
+.leave-section h3 {
+    margin: 0 0 17px;
+    font-size: 14px;
+}
+
+.leave-person-grid,
+.leave-period-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.leave-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.leave-field-value {
+    display: block;
+    min-height: 27px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cbd5e1;
+    font-size: 13px;
+}
+
+.leave-period {
+    padding: 20px;
+    background-color: #f3f4f6;
+    border-radius: 5px;
+}
+
+.leave-period-grid strong {
+    display: block;
+    font-size: 13px;
+}
+
+.leave-days {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #d8dde2;
+    font-size: 13px;
+}
+
+.leave-days strong {
+    font-size: 20px;
+}
+
+.document-page .leave-request {
+    margin: 32px 0 42px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.leave-signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 35px;
+}
+
+.leave-signature-line {
+    display: block;
+    height: 24px;
+    border-bottom: 1px solid #94a3b8;
+}
+
+.leave-signatures small {
+    display: block;
+    margin-top: 7px;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.leave-approval {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 18px;
+    border-top: 1px solid #d8dde2;
+    font-size: 12px;
+    color: #475569;
+}
+
+.leave-checkbox {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    border: 1px solid #94a3b8;
+    border-radius: 2px;
+}
+
+.leave-checkbox:first-child {
+    margin-left: 0;
+}
+
+.leave-footer {
+    margin-top: 35px;
+    color: #94a3b8;
+    font-size: 10px;
+}
+
+@media (max-width: 600px) {
+    .leave-letterhead {
+        flex-wrap: wrap;
+    }
+
+    .leave-header-info {
+        text-align: left;
+    }
+
+    .leave-person-grid,
+    .leave-period-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .leave-signatures {
+        gap: 16px;
+    }
+
+    .leave-period {
+        padding: 15px;
+    }
+}
+
+
+
+/* =========================
+   Dokument 7: Hardwarebestellung
+   ========================= */
+
+.hardware-document {
+    color: #263746;
+}
+
+.hardware-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #426b58;
+}
+
+.hardware-header strong {
+    display: block;
+    color: #254c3c;
+    font-size: 15px;
+}
+
+.hardware-header small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.hardware-file-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    background-color: #e9f0eb;
+    color: #254c3c;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.document-page .hardware-title {
+    font-size: 25px;
+    margin: 0 0 25px;
+}
+
+.hardware-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.hardware-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.hardware-info-grid strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.hardware-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+.hardware-table th {
+    padding: 12px;
+    background-color: #dcebe2;
+    color: #254c3c;
+    text-align: left;
+    border: 1px solid #cbd5d1;
+}
+
+.hardware-table td {
+    padding: 13px 12px;
+    border: 1px solid #d8dde2;
+}
+
+.hardware-table tbody tr:nth-child(even) {
+    background-color: #f6f8f7;
+}
+
+.hardware-table th:nth-child(2),
+.hardware-table td:nth-child(2) {
+    text-align: center;
+}
+
+.hardware-table th:last-child,
+.hardware-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.hardware-table .hardware-total td {
+    background-color: #e9f0eb;
+    color: #254c3c;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+}
+
+.hardware-table .hardware-total td:last-child {
+    text-align: right;
+}
+
+.hardware-purpose {
+    margin: 30px 0;
+}
+
+.document-page .hardware-purpose p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.hardware-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #d8dde2;
+    color: #64748b;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    .hardware-info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .hardware-table th,
+    .hardware-table td {
+        padding: 9px 6px;
+        font-size: 11px;
+    }
+}
+
+
+
+/* =========================
+   Dokument 8: Softwareangebot
+   ========================= */
+
+.software-offer-document {
+    color: #263746;
+}
+
+.software-offer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #48546c;
+}
+
+.software-offer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.software-offer-logo {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: #48546c;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.software-offer-brand strong {
+    display: block;
+    color: #344158;
+    font-size: 16px;
+}
+
+.software-offer-brand small {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 10px;
+}
+
+.software-offer-address {
+    text-align: right;
+    color: #475569;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.software-offer-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.software-offer-meta strong,
+.software-offer-meta span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.software-offer-meta strong {
+    font-weight: 600;
+}
+
+.software-offer-label {
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 11px !important;
+}
+
+.software-offer-date {
+    text-align: right;
+    color: #475569;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.document-page .software-offer-title {
+    margin: 0 0 25px;
+    color: #344158;
+    font-size: 24px;
+}
+
+.document-page .software-offer-document > p {
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.software-offer-table {
+    width: 100%;
+    margin: 28px 0;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.software-offer-table th {
+    padding: 12px;
+    background-color: #e9ebf1;
+    color: #344158;
+    text-align: left;
+    border: 1px solid #d8dde5;
+}
+
+.software-offer-table td {
+    padding: 16px 12px;
+    border: 1px solid #d8dde5;
+    vertical-align: top;
+}
+
+.software-offer-table th:last-child,
+.software-offer-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.software-offer-table td strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.software-offer-table td span {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.software-offer-table .software-offer-total td {
+    padding: 14px 12px;
+    background-color: #e9ebf1;
+    color: #344158;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.software-offer-section {
+    margin-bottom: 23px;
+}
+
+.software-offer-section h3 {
+    margin: 0 0 8px;
+    color: #344158;
+    font-size: 14px;
+}
+
+.document-page .software-offer-section p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.software-offer-signature {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 28px;
+    margin-bottom: 35px;
+    font-size: 13px;
+}
+
+.software-offer-signature strong {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.software-offer-signature small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.software-offer-footer {
+    padding-top: 14px;
+    border-top: 1px solid #d8dde2;
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .software-offer-header,
+    .software-offer-meta {
+        flex-wrap: wrap;
+    }
+
+    .software-offer-address,
+    .software-offer-date {
+        text-align: left;
+    }
+
+    .software-offer-table th,
+    .software-offer-table td {
+        padding: 10px 7px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================
+   Dokument 9: Hardware-Rechnung
+   ========================= */
+
+.hardware-invoice-document {
+    color: #263746;
+}
+
+.hardware-invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #45617c;
+}
+
+.hardware-invoice-header strong {
+    display: block;
+    font-size: 17px;
+    color: #263746;
+}
+
+.hardware-invoice-header small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.hardware-invoice-header span {
+    display: block;
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 10px;
+}
+
+.hardware-invoice-symbol {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: #e9eef4;
+    color: #45617c;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.hardware-invoice-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.hardware-invoice-meta strong,
+.hardware-invoice-meta span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.hardware-invoice-meta strong {
+    font-weight: 600;
+}
+
+.hardware-invoice-label {
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 11px !important;
+}
+
+.hardware-invoice-meta-right {
+    text-align: right;
+}
+
+.document-page .hardware-invoice-title {
+    margin: 0 0 20px;
+    color: #263746;
+    font-size: 27px;
+}
+
+.document-page .hardware-invoice-intro {
+    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.hardware-invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 12px;
+}
+
+.hardware-invoice-table th {
+    padding: 12px;
+    background-color: #e9eef4;
+    color: #344b63;
+    text-align: left;
+    border: 1px solid #d8dde5;
+}
+
+.hardware-invoice-table td {
+    padding: 14px 12px;
+    border: 1px solid #d8dde5;
+}
+
+.hardware-invoice-table tbody tr:nth-child(even) {
+    background-color: #f7f9fb;
+}
+
+.hardware-invoice-table th:nth-child(2),
+.hardware-invoice-table td:nth-child(2) {
+    text-align: center;
+}
+
+.hardware-invoice-table th:last-child,
+.hardware-invoice-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.hardware-invoice-calculation {
+    margin: 0 0 35px auto;
+    width: 100%;
+    max-width: 330px;
+}
+
+.hardware-invoice-calculation > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 9px 0;
+    font-size: 12px;
+}
+
+.hardware-invoice-calculation
+.hardware-invoice-total {
+    align-items: center;
+    margin-top: 8px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #e9eef4;
+    color: #344b63;
+    font-size: 14px;
+}
+
+.hardware-invoice-total strong:last-child {
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.hardware-invoice-section {
+    margin-bottom: 22px;
+}
+
+.hardware-invoice-section h3 {
+    margin: 0 0 8px;
+    color: #263746;
+    font-size: 14px;
+}
+
+.document-page .hardware-invoice-section p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.hardware-invoice-footer {
+    margin-top: 35px;
+    padding-top: 14px;
+    border-top: 1px solid #d8dde2;
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .hardware-invoice-header,
+    .hardware-invoice-meta {
+        flex-wrap: wrap;
+    }
+
+    .hardware-invoice-meta-right {
+        text-align: left;
+    }
+
+    .hardware-invoice-table th,
+    .hardware-invoice-table td {
+        padding: 10px 6px;
+        font-size: 11px;
+    }
+
+    .hardware-invoice-calculation {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================
+   Dokument 10: Dienstleistungsrechnung
+   ========================= */
+
+.service-invoice-document {
+    color: #263746;
+}
+
+.service-invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #365c7d;
+}
+
+.service-invoice-header strong {
+    display: block;
+    font-size: 17px;
+    color: #263746;
+}
+
+.service-invoice-header small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.service-invoice-header span {
+    display: block;
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 10px;
+}
+
+.service-invoice-symbol {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: #e7edf4;
+    color: #365c7d;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.service-invoice-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.service-invoice-meta strong,
+.service-invoice-meta span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.service-invoice-meta strong {
+    font-weight: 600;
+}
+
+.service-invoice-label {
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 11px !important;
+}
+
+.service-invoice-meta-right {
+    text-align: right;
+}
+
+.document-page .service-invoice-title {
+    margin: 0 0 20px;
+    color: #263746;
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+.document-page .service-invoice-intro {
+    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.service-invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 12px;
+}
+
+.service-invoice-table th {
+    padding: 12px;
+    background-color: #e7edf4;
+    color: #344b63;
+    text-align: left;
+    border: 1px solid #d8dde5;
+}
+
+.service-invoice-table td {
+    padding: 14px 12px;
+    border: 1px solid #d8dde5;
+}
+
+.service-invoice-table tbody tr:nth-child(even) {
+    background-color: #f7f9fb;
+}
+
+.service-invoice-table th:nth-child(2),
+.service-invoice-table td:nth-child(2) {
+    text-align: center;
+}
+
+.service-invoice-table th:last-child,
+.service-invoice-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.service-invoice-calculation {
+    width: 100%;
+    max-width: 330px;
+    margin: 0 0 35px auto;
+}
+
+.service-invoice-calculation > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 9px 0;
+    font-size: 12px;
+}
+
+.service-invoice-calculation
+.service-invoice-total {
+    align-items: center;
+    margin-top: 8px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #e7edf4;
+    color: #344b63;
+    font-size: 14px;
+}
+
+.service-invoice-total strong:last-child {
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.service-invoice-section {
+    margin-bottom: 22px;
+}
+
+.service-invoice-section h3 {
+    margin: 0 0 8px;
+    color: #263746;
+    font-size: 14px;
+}
+
+.document-page .service-invoice-section p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.service-invoice-footer {
+    margin-top: 35px;
+    padding-top: 14px;
+    border-top: 1px solid #d8dde2;
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .service-invoice-header,
+    .service-invoice-meta {
+        flex-wrap: wrap;
+    }
+
+    .service-invoice-meta-right {
+        text-align: left;
+    }
+
+    .service-invoice-table th,
+    .service-invoice-table td {
+        padding: 10px 6px;
+        font-size: 11px;
+    }
+
+    .service-invoice-calculation {
+        max-width: 100%;
+    }
+}
+
+
+/* ==========================================
+   NEUES LAYOUT DER DOKUMENTENVORSCHAU
+   Desktop: Dokument links, Zuordnung rechts
+   Mobil: Dokument oben, Zuordnung unten
+   ========================================== */
+
+/* Gesamtes Vorschaufenster */
+.word-window {
+    max-width: 1250px;
+    width: 96%;
+    height: 90vh;
+    max-height: 950px;
+}
+
+/* Gemeinsamer Arbeitsbereich */
+.word-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Linker Bereich mit eigenem Scrollen */
+.word-workspace .word-document {
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 24px;
+    background: #e5e7eb;
+}
+
+/* Dokumentblatt */
+.word-workspace .document-page {
+    width: 100%;
+    max-width: 700px;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 45px 38px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Lange Inhalte und Tabellen */
+.word-workspace #modal-document-content {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.word-workspace #modal-document-content table {
+    max-width: 100%;
+}
+
+/* Rechte Seite: Zuordnungsbereich */
+.assignment-panel {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 30px 24px;
+    background: #f8fafc;
+    border-left: 1px solid #d1d5db;
+}
+
+/* Alte Abtrennung entfernen */
+.assignment-panel .assignment-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.assignment-panel .assignment-section h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #1f2937;
+}
+
+.assignment-panel .assignment-section p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+/* Ordner untereinander */
+.assignment-panel .folder-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.assignment-panel .folder-option {
+    min-height: 54px;
+    padding: 15px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.assignment-panel .folder-option:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* Ausgewählten Ordner hervorheben */
+.assignment-panel .folder-option:has(input:checked) {
+    background: #eaf1fb;
+    border-color: #4977ae;
+}
+
+.assignment-panel .folder-option input {
+    accent-color: #365f91;
+}
+
+/* Zuordnen-Button */
+.assignment-panel .assign-button {
+    width: 100%;
+    min-height: 48px;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: 12px 18px;
+    background: #365f91;
+}
+
+.assignment-panel .assign-button:not(:disabled):hover {
+    background: #294b73;
+}
+
+.assignment-panel .assign-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   TABLETS UND SMARTPHONES
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .word-window {
+        width: 100%;
+        max-width: none;
+        height: 100dvh;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    .word-workspace {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    /* Dokumentenvorschau oben */
+    .word-workspace .word-document {
+        flex: 1 1 auto;
+        min-height: 120px;
+        overflow-y: auto;
+        padding: 12px;
+    }
+
+    .word-workspace .document-page {
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        padding: 22px 16px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ordnerauswahl unten */
+    .assignment-panel {
+        flex: 0 0 auto;
+        padding: 14px 16px 16px;
+        border-left: none;
+        border-top: 1px solid #cbd5e1;
+        overflow-y: auto;
+        max-height: 48%;
+    }
+
+    .assignment-panel .assignment-section h3 {
+        font-size: 17px;
+        margin-bottom: 4px;
+    }
+
+    .assignment-panel .assignment-section p {
+        font-size: 12px;
+    }
+
+    /* Zwei Ordner pro Zeile */
+    .assignment-panel .folder-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .assignment-panel .folder-option {
+        min-height: 44px;
+        padding: 10px;
+        font-size: 13px;
+        gap: 7px;
+    }
+
+    .assignment-panel .assign-button {
+        min-height: 44px;
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+    /* Obere Menüleiste kompakter */
+    .word-menu {
+        flex-shrink: 0;
+    }
+
+    .word-titlebar,
+    .word-statusbar {
+        flex-shrink: 0;
+    }
+}
+
+/* Sehr kleine Displays */
+@media (max-width: 380px) {
+
+    .assignment-panel {
+        padding: 10px 12px;
+        max-height: 52%;
+    }
+
+    .assignment-panel .folder-option {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .word-workspace .document-page {
+        padding: 16px 12px;
+    }
+}
